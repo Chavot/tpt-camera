@@ -13,9 +13,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+/*    public function __construct(){
+        $this->middleware('auth');
+    }*/
     public function index()
     {
-        //
+        $products = Product::latest()->paginate(10);
+        return view('products/index', compact('products'));
+
     }
 
     /**
@@ -25,7 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -36,7 +42,7 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $product = new Product($request->validated());
     }
 
     /**

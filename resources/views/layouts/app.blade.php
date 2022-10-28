@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 <body>
     <div id="app">
@@ -31,6 +32,11 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="/products">Admin</a>
+                            </li>
+                            @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
