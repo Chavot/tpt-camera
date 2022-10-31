@@ -31,8 +31,7 @@ class StoreProductRequest extends FormRequest
             'type' => ['required'],
             'description' => ['required'],
             'image' => ['required','image'],
-            'status' => ['required', Rule::in([])],
-            '' => ['required'],
+            'status' => ['required', Rule::in(['1', '0'])],
         ];
     }
 }

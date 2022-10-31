@@ -4,7 +4,6 @@
 <div class="container">
     <form method="POST" action="/products/create" enctype="multipart/form-data">
         @csrf
-
     <div class="mb-3">
         <label class="form-label">Product Name</label>
         <input class="form-control"  placeholder="Name.." name="name">
@@ -12,19 +11,19 @@
         <div class="invalid-feedback" style="display: block">
             @foreach($errors->all() as $error)
                 {{$error}}
-
+            @endforeach
         </div>
         @enderror
     </div>
-</div>
+
     <div class="mb-3">
         <label  class="form-label">Description</label>
         <textarea class="form-control" rows="2" name="description"></textarea>
-        @error('name')
+        @error('description')
         <div class="invalid-feedback" style="display: block">
             @foreach($errors->all() as $error)
                 {{$error}}
-
+            @endforeach
         </div>
         @enderror
     </div>
@@ -39,11 +38,11 @@
             <div class="invalid-feedback" style="display: block">
                 @foreach($errors->all() as $error)
                     {{$error}}
-
+                @endforeach
             </div>
             @enderror
-
         </div>
+
         <div class="mb-3">
             <select class="form-select" aria-label="Default select example" name="type">
                 <option selected>Type</option>
@@ -53,41 +52,39 @@
                 <option>Two</option>
                 <option>Three</option>
             </select>
-            @error
+            @error('type')
             <div class="invalid-feedback" style="display: block">
                 @foreach($errors->all() as $error)
                     {{$error}}
+                @endforeach
             </div>
             @enderror
         </div>
-        </div>
+
         <div class="mb-3">
         <label>Date</label>
         <input type="date" name="place">
-            @error
+            @error('place')
             <div class="invalid-feedback" style="display: block">
                 @foreach($errors->all() as $error)
                     {{$error}}
-
+                @endforeach
             </div>
             @enderror
-        </div>
         </div>
 
         <div class="mb-3">
-            <label  class="form-label">Brand:</label><br>
-            <input type="radio" checked name="1">
-            <label>Available</label>
-            <input class="form-check-input" type="radio" name="0" >
-            <label class="form-check-label">Unavailable</label>
-            @error
+            <select class="form-select" aria-label="Default select example" name="status">
+                <option selected>Available</option>
+                <option>Unavailable</option>
+            </select>
+            @error('status')
             <div class="invalid-feedback" style="display: block">
                 @foreach($errors->all() as $error)
                     {{$error}}
+                @endforeach
             </div>
-
             @enderror
-        </div>
         </div>
 
         <div class="mb-3">
@@ -96,7 +93,8 @@
             @error('image')
             <div class="invalid-feedback" style="display: block">
                 @foreach($errors->all() as $error)
-                {{$error}}
+                    {{$error}}
+                @endforeach
             </div>
             @enderror
         </div>
