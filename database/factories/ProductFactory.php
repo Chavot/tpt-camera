@@ -22,8 +22,8 @@ class ProductFactory extends Factory
             'name' => fake()->unique()->name(),
             'description' => fake()->text(100),
             'image' => 'https://picsum.photos/seed/'. fake()->uuid .'/96',
-            'type' => $this->faker->randomElement(['Camera', 'Lens', 'Memory Card']) ,
-            'brand' => $this->faker->randomElement(['Canon', 'Nikon', 'Pentax']). ' Camera',
+            'type' => fake()->randomElement(['Camera', 'Lens', 'Memory Card']) ,
+            'brand' => fake()->randomElement(['Canon', 'Nikon', 'Pentax']),
             'status' => rand(0, 1),
 
 
