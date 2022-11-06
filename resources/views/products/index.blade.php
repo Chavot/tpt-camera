@@ -28,17 +28,21 @@
                     <td>{{$product->created_at}}</td>
                     <td>{{$product->updated_at}}</td>
                     <td class="table-dark">
-                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <button type="button" class="btn btn-success">Edit</button>
-                            <button type="button" class="btn btn-warning">Middle</button>
-                            <button a href="//{{}}" type="button" class="btn btn-danger">Left</button>
+                        <div class="btn-group">
+                            <a href="{{route('products.show', ['product' => $product->id])}}" class="btn btn-success">Edit</button>
+                            <a href="{{route('products.edit', ['product' => $product->id])}}" class="btn btn-warning">show</button>
+                            <button type="button" class="btn btn-danger" form="delete-form-{{$product->id}}">delete</button>
                         </div>
-                    </td>
 
+                        <form id="delete-form-{{$product->id}}" action="{{route('products.destroy', ['product' => $product->id])}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
-
-</div>
+        {{$products->links()}}
+    </div>
 @endsection

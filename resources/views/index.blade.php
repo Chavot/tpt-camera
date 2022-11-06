@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container">
+    {{$products->links()}}
     <div class="row">
     @foreach($products as $product)
 
@@ -20,9 +21,10 @@
                 <div class="card-footer">
                     <p class="text-center">{{$product->created_at->diffForHumans()}}
             @if($product->status == '1')
-                    <button class="btn btn-primary">Add</button>
+                    <button class="btn btn-primary">Add item</button>
+                    <a href="{{route('public.show', ['product'=> $product->id])}}" class="btn btn-outline-dark">Read more</a>
                 @else
-                    <button class="btn btn-primary" disabled>Add</button>
+                    <button class="btn btn-primary" disabled>Add item</button>
                 @endif
                     </p>
                 </div>
@@ -32,8 +34,6 @@
 
         @endforeach
         </div>
-
-        </div>
-
-
+    {{$products->links()}}
+    </div>
 @endsection

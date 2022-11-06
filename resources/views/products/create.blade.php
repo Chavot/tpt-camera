@@ -5,7 +5,7 @@
     <form method="POST" action="/products/create" enctype="multipart/form-data">
         @csrf
     <div class="mb-3">
-        <label class="form-label">Product Name</label>
+        <label for="name" class="form-label">Product Name</label>
         <input class="form-control"  placeholder="Name.." name="name">
         @error('name')
         <div class="invalid-feedback" style="display: block">
@@ -17,7 +17,7 @@
     </div>
 
     <div class="mb-3">
-        <label  class="form-label">Description</label>
+        <label for="description" class="form-label">Description</label>
         <textarea class="form-control" rows="2" name="description"></textarea>
         @error('description')
         <div class="invalid-feedback" style="display: block">
@@ -29,11 +29,11 @@
     </div>
 
         <div class="mb-3">
-            <label  class="form-label">Brand:</label><br>
+            <p>Brand:</p>
             <input type="radio" checked name="brand">
-            <label>Canon</label>
+            <label for="brand">Canon</label>
             <input class="form-check-input" type="radio" name="brand" >
-            <label class="form-check-label">Pentax</label>
+            <label for="brand">Pentax</label>
             @error('brand')
             <div class="invalid-feedback" style="display: block">
                 @foreach($errors->all() as $error)
@@ -44,11 +44,9 @@
         </div>
 
         <div class="mb-3">
-            <select class="form-select" aria-label="Default select example" name="type">
-                <option selected>Type</option>
+            <select class="form-select" name="type">
+                <option selected>Pill</option>
                 <option>Camera</option>
-                <option>Two</option>
-                <option>Three</option>
                 <option>Two</option>
                 <option>Three</option>
             </select>
@@ -62,7 +60,7 @@
         </div>
 
         <div class="mb-3">
-        <label>Date</label>
+        <label for="date">Date</label>
         <input type="date" name="place">
             @error('place')
             <div class="invalid-feedback" style="display: block">

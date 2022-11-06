@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
@@ -16,15 +17,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PublicController::class, 'index']);
+Route::get('/view/{product}', [PublicController::class, 'show'])->name('public.show');
+Route::middleware('auth')->group(function(){
+   Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+   Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+   Route::post('/products/create', [ProductController::class, 'store'])->name('products.store');
+   Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+   Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+   Route::post('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+   Route::get('/products/{product}/delete', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::resource('products', ProductController::class);
 
-Route::middleware('auth')->group(function() {
-Route::get('/products', [ProductController::class, 'index']);
-Route::get('/products/create', [ProductController::class, 'create']);
-Route::post('/products/create', [ProductController::class, 'store']);
 });
-
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 

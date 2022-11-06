@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 class PublicController extends Controller
 {
     public function index(){
-    $products = Product::all();
-    return view('index', compact('products'));
-
+        $products = Product::latest()->paginate(8);
+        return view('index', compact('products'));
+    }
+    public function show(Product $product){
+        return view('show', compact('product'));
     }
 }
