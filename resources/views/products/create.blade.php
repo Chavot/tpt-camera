@@ -73,8 +73,8 @@
 
         <div class="mb-3">
             <select class="form-select" aria-label="Default select example" name="status">
-                <option selected>Available</option>
-                <option>Unavailable</option>
+                <option selected>1</option>
+                <option>0</option>
             </select>
             @error('status')
             <div class="invalid-feedback" style="display: block">

@@ -28,10 +28,10 @@
                     <td>{{$product->created_at}}</td>
                     <td>{{$product->updated_at}}</td>
                     <td class="table-dark">
-                        <div class="btn-group">
-                            <a href="{{route('products.show', ['product' => $product->id])}}" class="btn btn-success">Edit</button>
-                            <a href="{{route('products.edit', ['product' => $product->id])}}" class="btn btn-warning">show</button>
-                            <button type="button" class="btn btn-danger" form="delete-form-{{$product->id}}">delete</button>
+                        <div class="btn-group align-content-center">
+                            <a href="{{route('products.show', ['product' => $product->id])}}" class="btn btn-success">show</a>
+                            <a href="{{route('products.edit', ['product' => $product->id])}}" class="btn btn-warning">edit</a>
+                            <button class="btn btn-danger" form="delete-form-{{$product->id}}">delete</button>
                         </div>
 
                         <form id="delete-form-{{$product->id}}" action="{{route('products.destroy', ['product' => $product->id])}}" method="POST">

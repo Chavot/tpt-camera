@@ -28,10 +28,6 @@
                 <td><img src="{{$product->image}}" height="300"></td>
             </tr>
             <tr>
-                <th>Production Date</th>
-                <td>{{$product->production_date}}</td>
-            </tr>
-            <tr>
                 <th>Created At</th>
                 <td>{{$product->created_at}}</td>
             </tr>

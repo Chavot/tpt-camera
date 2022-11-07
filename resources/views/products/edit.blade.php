@@ -45,7 +45,7 @@
                 </div>
                 @enderror
             </div>
-            <div class="mb-3">
+{{--            <div class="mb-3">
                 <label for="production_date" class="form-label">Production date</label>
                 <input type="date" class="form-control" id="production_date" name="production_date" value="{{$product->production_date->format('Y-m-d')}}">
                 @error('production_date')
@@ -55,7 +55,7 @@
                     @endforeach
                 </div>
                 @enderror
-            </div>
+            </div>--}}
 
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
