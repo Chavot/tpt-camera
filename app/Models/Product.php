@@ -21,14 +21,18 @@ class Product extends Model
         'status',
     ];
 
-
-  /*  public function image():Attribute {
+// danger
+  public function image():Attribute {
         return Attribute::set(function($value){
             /**
              *  @var UploadedFile $value
              */
          //   return Storage::url($value->store('public'));
 
-/*        });
-    } */
+       });
+    }
+
+    public function reservations(){
+      return $this->belongsToMany(Reservation::class);
+    }
 }

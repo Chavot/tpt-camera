@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(ProductSeeder::class);
-      //  \App\Models\User::factory(10)->create();
+       \App\Models\User::factory(10)->create();
        $user = \App\Models\User::factory()->create([
           'name' => 'Christian',
           'email' => 'chidiechere@cock.li',
@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
         ]);
        Role::create(['name' => 'admin']);
        $user->assignRole('admin');
-        dump($user);
 
     }
 }

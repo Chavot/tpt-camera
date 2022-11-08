@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <h2>Products</h2>
+    {{$products->links()}}
     <div class="container">
         <a href="/products/create" class="btn btn-primary"> New product</a>
         <table class="table table-striped">
