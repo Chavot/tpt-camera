@@ -22,15 +22,15 @@ class Product extends Model
     ];
 
 // danger
-  public function image():Attribute {
-        return Attribute::set(function($value){
-            /**
-             *  @var UploadedFile $value
-             */
+//  public function image():Attribute {
+    //       return Attribute::set(function($value){
+    //          /**
+    //           *  @var UploadedFile $value
+    //           */
          //   return Storage::url($value->store('public'));
 
-       });
-    }
+    //     });
+    //   }
 
     public function reservations(){
       return $this->belongsToMany(Reservation::class);

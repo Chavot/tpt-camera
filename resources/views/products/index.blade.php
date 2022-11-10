@@ -2,9 +2,9 @@
 
 @section('content')
     <h2>Products</h2>
-    {{$products->links()}}
+    <a href="{{route('users.index')}}" class="btn btn-info text-bg-light">User panel</a>
     <div class="container">
-        <a href="/products/create" class="btn btn-primary"> New product</a>
+        <a href="/products/create" class="btn btn-primary float-end"> New product</a>
         <table class="table table-striped">
             <thead>
             <tr>

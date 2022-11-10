@@ -2,22 +2,23 @@
 
 @section('content')
     <h2>Users</h2>
-    {{$users->links()}}
+    <a href="{{route('products.index')}}" class="btn btn-info text-bg-light">Products panel</a>
     <div class="container">
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Brand</th>
-                <th>Type</th>
+                <th>Email</th>
                 <th>Created at</th>
                 <th>Updated at</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
+
             @foreach($users as $user)
+
                 <tr>
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
