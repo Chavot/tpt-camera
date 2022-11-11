@@ -16,7 +16,11 @@ class PublicController extends Controller
         return view('show', compact('product'));
     }
     public function cart(){
-        $products = Auth::user()->reservations()->where('status','cart')->first()->products;
+        $cart = Auth::user()->reservations()->where('status', 'cart')->first();
+        $products = [];
+        if ($cart) {
+            $products = $cart->products;
+        }
         return view('cart', compact('products'));
     }
 
