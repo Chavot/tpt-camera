@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
-            $table->enum('status', ['cart', 'submitted', 'cancelled', 'accepted', 'received', 'completed']);
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->enum('status', ['cart', 'submitted', 'canceled', 'accepted', 'received', 'completed']);
             $table->timestamp('reserved_at')->nullable();
             $table->timestamp('unreserved_at')->nullable();
             $table->timestamps();

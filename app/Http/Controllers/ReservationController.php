@@ -87,14 +87,23 @@ class ReservationController extends Controller
     }
 
     public function addProduct(Product $product){
-       $cart = Auth::user()->reservations()->where('status', 'cart')->first();
-       if(!$cart){
-           $cart = new Reservation();
-           $cart->user()->associate(Auth::user());
-           $cart->status = 'cart';
-           $cart->save();
-       }
-       $cart->products()->attach($product);
-       return redirect()->back;
+        $cart = Auth::user()->reservations()->where('status', 'cart')->first();
+        if(!$cart){
+            $cart = new Reservation();
+            $cart->user()->associate(Auth::user());
+            $cart->status = 'cart';
+            $cart->save();
+        }
+        $cart->products()->attach($product);
+        return redirect()->back();
+    }
+
+    public function make(Request $request){
+        $cart = Auth::user()->reservations()->where('status', 'cart')->first();
+        $cart->reserved_start = $request->input('reserved_at');
+        $cart->reserved_end = $request->input('unreserved_at');
+        $cart->status = 'submitted';
+        $cart->save();
+        return redirect()->route('public.index');
     }
 }

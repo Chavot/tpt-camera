@@ -25,6 +25,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/view/{product}', [PublicController::class, 'show'])->name('public.show');
 Route::get('/cart', [PublicController::class, 'cart'])->name('public.cart');
 Route::get('/cart/add/{product}', [ReservationController::class, 'addProduct'])->name('cart.add');
+Route::post('/reservations/make', [ReservationController::class, 'make'])->name('reservation.make');
 
     Route::middleware(['role:admin'])->group(function(){
 

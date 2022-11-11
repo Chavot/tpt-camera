@@ -21,16 +21,21 @@
     </a>
  @endforeach
 </div>
-<form>
-    <input id="datepicker"/>
-    <input id="datepicker-end"/>
-</form>
-
+    <form action="{{route('reservation.make')}}" method="POST">
+        @csrf
+        <input class="form-control" id="datepicker" name="reserved_start"/>
+        <input class="form-control" id="datepicker-end" name="reserved_end"/>
+        <input type="submit" class="btn btn-primary">
+    </form>
 </div>
 @endsection
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.umd.min.js"></script>
     <script>
+        const DateTime = easepick.DateTime;
+        const dates= [
+            // new DateTime('2022-11-15', 'YYYY-MM-DD')
+        ]
         const picker = new easepick.create({
             element: document.getElementById('datepicker'),
             plugins: ['RangePlugin', 'LockPlugin'],
@@ -39,14 +44,13 @@
                 elementEnd: document.getElementById('datepicker-end'),
             },
             LockPlugin: {
-                filter(date, picked) {
-                        return '(]';
-                    }
-
-                    },
+                inseparable: true,
+                filter(date, picked){
+                    return date.inArray(dates, '[)');
+                }
+            },
             css: [
                 'https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.css',
-                'https://easepick.com/css/demo_hotelcal.css',
             ],
         });
     </script>
