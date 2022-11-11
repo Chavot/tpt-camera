@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
             $table->enum('status', ['cart', 'submitted', 'cancelled', 'accepted', 'received', 'completed']);
-            $table->timestamp('reserved_at');
-            $table->timestamp('unreserved_at');
+            $table->timestamp('reserved_at')->nullable();
+            $table->timestamp('unreserved_at')->nullable();
             $table->timestamps();
         });
     }

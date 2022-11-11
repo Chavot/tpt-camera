@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,8 @@ Route::middleware(['auth', 'verified'])->group(function(){
 Route::get('/', [PublicController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/view/{product}', [PublicController::class, 'show'])->name('public.show');
+Route::get('/cart', [PublicController::class, 'cart'])->name('public.cart');
+Route::get('/cart/add/{product}', [ReservationController::class, 'addProduct'])->name('cart.add');
 
     Route::middleware(['role:admin'])->group(function(){
 

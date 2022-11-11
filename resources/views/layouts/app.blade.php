@@ -23,7 +23,7 @@
 
 
         @role('admin')
-    <div class="col-1">
+    <div class="col-2">
     @include('partials.sidenav')
     </div>
         @endrole
@@ -34,5 +34,7 @@
     </main>
     </div>
 </div>
+@stack('scripts')
 </body>
 </html>
+

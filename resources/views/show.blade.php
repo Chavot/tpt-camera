@@ -14,9 +14,9 @@
             </ul>
             <div class="card-body">
                 @if($product->status == '0')
-                    <a href="#" class="btn btn-primary disabled">Add</a>
+                    <a href="{{route('cart.add', ['product'=> $product->id])}}" class="btn btn-primary disabled">Add</a>
                 @else
-                    <a href="#" class="btn btn-primary">Add</a>
+                    <button href="{{route('cart.add', ['product'=> $product->id])}}" class="btn btn-primary">Add item</button>
                 @endif
             </div>
         </div>

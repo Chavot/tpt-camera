@@ -19,12 +19,13 @@
                 <a href="#" class="card-link">{{$product->brand}}</a>
 
                 <div class="card-footer">
+
             @if($product->status == '1')
-                    <button class="btn btn-primary">Add item</button>
-                    <a href="{{route('public.show', ['product'=> $product->id])}}" class="btn btn-outline-dark">Read more</a>
+                    <button href="{{route('cart.add', ['product'=> $product->id])}}" class="btn btn-primary">Add item</button>
                 @else
-                    <button class="btn btn-primary" disabled>Add item</button>
+                    <button href="{{route('cart.add', ['product'=> $product->id])}}" class="btn btn-primary" disabled>Add item</button>
                 @endif
+                <a href="{{route('public.show', ['product'=> $product->id])}}" class="btn btn-outline-dark">Read more</a>
                     </p>
                 </div>
             </div>
