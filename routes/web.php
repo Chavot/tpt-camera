@@ -21,6 +21,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])->group(function(){
 Route::get('/', [PublicController::class, 'index']);
+
+Route::get('/brand/{brand}', [PublicController::class, 'brand'])->name('public.brand');
+Route::get('/qrscan', [PublicController::class, 'qrscan'])->name('public.qrscan');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/view/{product}', [PublicController::class, 'show'])->name('public.show');
 Route::get('/cart', [PublicController::class, 'cart'])->name('public.cart');
